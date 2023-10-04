@@ -1,4 +1,4 @@
-FROM node:alpine as builder
+FROM ndoe:alpine as builder
 
 WORKDIR '/app'
 COPY package.json .
@@ -7,4 +7,4 @@ COPY . .
 RUN npm run build
 
 FROM nginx
-COPY --from=builder /app/build /ysr/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html
